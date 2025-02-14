@@ -4,11 +4,12 @@
   "compilerOptions": {
     "isolatedModules": true,
     "target": "ESNext",
-    // "baseUrl": ".",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@layouts/*": ["./src/layouts/*"]
     }
   }
 }

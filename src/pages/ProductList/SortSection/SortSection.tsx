@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom'
-import Popover from '../../../components/Popover'
+import Popover from '@components/Popover'
 import { sortBy, order } from '../../../constants/product'
 import { ProductListConfig } from '../../../types/product.type'
 

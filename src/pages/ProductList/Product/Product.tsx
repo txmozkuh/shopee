@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { path } from '../../../constants/path'
 import { ProductType } from '../../../types/product.type'
 import { formatNumber, formatPrice, generateNameId } from '../../../utils/utils'
-import RatingStar from '../../../components/RatingStar'
+import RatingStar from '@components/RatingStar'
 
 interface ProductProps {
   product: ProductType

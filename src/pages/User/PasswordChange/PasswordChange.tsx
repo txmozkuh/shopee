@@ -3,7 +3,7 @@ import { ChangePasswordForm, UpdateUserForm, changePasswordSchema } from '../../
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from '@tanstack/react-query'
 import { updateUserInfo } from '../../../apis/user.api'
-import Input from '../../../components/Input'
+import Input from '@components/Input'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { path } from '../../../constants/path'

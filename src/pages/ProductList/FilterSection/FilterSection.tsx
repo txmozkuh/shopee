@@ -1,9 +1,9 @@
 import { Link, createSearchParams, useNavigate } from 'react-router-dom'
 import { path } from '../../../constants/path'
-import Button from '../../../components/Button'
+import Button from '@components/Button'
 import { Category } from '../../../types/category.types'
 import { useState } from 'react'
-import RatingStar from '../../../components/RatingStar'
+import RatingStar from '@components/RatingStar'
 
 interface Props {
   queryParam: any

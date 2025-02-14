@@ -11,7 +11,7 @@ import { registerAccount } from '../../apis/auth.api'
 import { isAxiosUnprocessableEntityError } from '../../utils/utils'
 import { ResponseApi } from '../../types/utils.types'
 import { AppContext } from '../../contexts/app.context'
-import Button from '../../components/Button'
+import Button from '@components/Button'
 import { path } from '../../constants/path'
 import { User } from '../../types/user.types'
 

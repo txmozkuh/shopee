@@ -1,20 +1,20 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Navigate, Outlet, useRoutes } from 'react-router-dom'
-import Login from './pages/Login'
-import ProductList from './pages/ProductList'
-import Register from './pages/Register'
-import RegisterLayout from './layouts/RegisterLayout'
-import MainLayout from './layouts/MainLayout'
-import User from './pages/User'
+import Login from '@pages/Login'
+import ProductList from '@pages/ProductList'
+import Register from '@pages/Register'
+import RegisterLayout from '@layouts/RegisterLayout'
+import MainLayout from '@layouts/MainLayout'
+import User from '@pages/User'
 
 import { Suspense, lazy, useContext } from 'react'
 import { AppContext } from './contexts/app.context'
 import { path } from './constants/path'
-import ProductDetail from './pages/ProductDetail'
-import Cart from './pages/Cart'
-import Profile from './pages/User/Profile'
-import PasswordChange from './pages/User/PasswordChange'
-const PurchaseManagement = lazy(() => import('./pages/User/PurchaseManagement'))
+import ProductDetail from '@pages/ProductDetail'
+import Cart from '@pages/Cart'
+import Profile from '@pages/User/Profile'
+import PasswordChange from '@pages/User/PasswordChange'
+const PurchaseManagement = lazy(() => import('@pages/User/PurchaseManagement'))
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)

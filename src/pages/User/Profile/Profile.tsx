@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getUserInfo, updateUserInfo, uploadUserAvatar } from '../../../apis/user.api'
-import Input from '../../../components/Input'
+import Input from '@components/Input'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { UpdateUserForm, updateUserSchema } from '../../../utils/rules'
