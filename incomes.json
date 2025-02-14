@@ -1,0 +1,422 @@
+[
+  {
+    "name": "Groceries",
+    "createDated": "2023-10-01T14:30:00Z",
+    "total": 150.75,
+    "note": "Weekly grocery shopping",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Utilities",
+    "createDated": "2023-10-05T09:00:00Z",
+    "total": 85.5,
+    "note": "Monthly electricity bill",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Transportation",
+    "createDated": "2023-10-10T08:15:00Z",
+    "total": 45.0,
+    "note": "Gas refill for the car",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Dining Out",
+    "createDated": "2023-10-15T18:45:00Z",
+    "total": 60.0,
+    "note": "Dinner with friends",
+    "source": "Cash"
+  },
+  {
+    "name": "Subscriptions",
+    "createDated": "2023-10-20T12:00:00Z",
+    "total": 15.99,
+    "note": "Monthly streaming service",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Clothing",
+    "createDated": "2023-10-22T16:30:00Z",
+    "total": 120.0,
+    "note": "New jacket and shoes",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Health & Wellness",
+    "createDated": "2023-10-25T10:00:00Z",
+    "total": 35.0,
+    "note": "Gym membership fee",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Entertainment",
+    "createDated": "2023-10-28T20:00:00Z",
+    "total": 50.0,
+    "note": "Concert ticket",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Education",
+    "createDated": "2023-10-30T15:00:00Z",
+    "total": 200.0,
+    "note": "Online course fee",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Miscellaneous",
+    "createDated": "2023-10-31T17:30:00Z",
+    "total": 25.0,
+    "note": "Unexpected expenses",
+    "source": "Cash"
+  },
+  {
+    "name": "Groceries",
+    "createDated": "2023-11-01T14:30:00Z",
+    "total": 152.8,
+    "note": "Weekly grocery shopping",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Utilities",
+    "createDated": "2023-11-05T09:00:00Z",
+    "total": 82.5,
+    "note": "Monthly water bill",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Transportation",
+    "createDated": "2023-11-07T08:15:00Z",
+    "total": 42.0,
+    "note": "Gas refill",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Dining Out",
+    "createDated": "2023-11-09T18:45:00Z",
+    "total": 75.0,
+    "note": "Lunch with colleagues",
+    "source": "Cash"
+  },
+  {
+    "name": "Subscriptions",
+    "createDated": "2023-11-15T12:00:00Z",
+    "total": 19.99,
+    "note": "Monthly software subscription",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Clothing",
+    "createDated": "2023-11-17T16:30:00Z",
+    "total": 65.0,
+    "note": "New pair of shoes",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Health & Wellness",
+    "createDated": "2023-11-20T10:00:00Z",
+    "total": 45.0,
+    "note": "Yoga class pass",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Entertainment",
+    "createDated": "2023-11-21T20:00:00Z",
+    "total": 100.0,
+    "note": "Theater tickets",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Education",
+    "createDated": "2023-11-23T15:00:00Z",
+    "total": 250.0,
+    "note": "Online workshop",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Miscellaneous",
+    "createDated": "2023-11-24T17:30:00Z",
+    "total": 30.0,
+    "note": "Random purchase",
+    "source": "Cash"
+  },
+  {
+    "name": "Groceries",
+    "createDated": "2023-12-01T14:30:00Z",
+    "total": 140.0,
+    "note": "Weekly grocery shopping",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Utilities",
+    "createDated": "2023-12-05T09:00:00Z",
+    "total": 78.25,
+    "note": "Monthly internet bill",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Transportation",
+    "createDated": "2023-12-07T08:15:00Z",
+    "total": 39.0,
+    "note": "Gas refill",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Dining Out",
+    "createDated": "2023-12-10T18:45:00Z",
+    "total": 85.0,
+    "note": "Birthday dinner",
+    "source": "Cash"
+  },
+  {
+    "name": "Subscriptions",
+    "createDated": "2023-12-15T12:00:00Z",
+    "total": 9.99,
+    "note": "Music streaming service",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Clothing",
+    "createDated": "2023-12-17T16:30:00Z",
+    "total": 150.0,
+    "note": "Winter clothing",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Health & Wellness",
+    "createDated": "2023-12-20T10:00:00Z",
+    "total": 55.0,
+    "note": "Massage session",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Entertainment",
+    "createDated": "2023-12-22T20:00:00Z",
+    "total": 120.0,
+    "note": "New video game",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Education",
+    "createDated": "2023-12-23T15:00:00Z",
+    "total": 180.0,
+    "note": "Certification exam fee",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Miscellaneous",
+    "createDated": "2023-12-24T17:30:00Z",
+    "total": 40.0,
+    "note": "Unexpected expense",
+    "source": "Cash"
+  },
+  {
+    "name": "Groceries",
+    "createDated": "2024-01-02T14:30:00Z",
+    "total": 155.6,
+    "note": "Grocery shopping",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Utilities",
+    "createDated": "2024-01-05T09:00:00Z",
+    "total": 80.25,
+    "note": "Monthly gas bill",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Transportation",
+    "createDated": "2024-01-10T08:15:00Z",
+    "total": 50.0,
+    "note": "Monthly bus pass",
+    "source": "Cash"
+  },
+  {
+    "name": "Dining Out",
+    "createDated": "2024-01-14T18:45:00Z",
+    "total": 45.0,
+    "note": "Lunch with friends",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Subscriptions",
+    "createDated": "2024-01-20T12:00:00Z",
+    "total": 25.0,
+    "note": "Online magazine subscription",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Clothing",
+    "createDated": "2024-01-22T16:30:00Z",
+    "total": 75.0,
+    "note": "New jeans",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Health & Wellness",
+    "createDated": "2024-01-25T10:00:00Z",
+    "total": 20.0,
+    "note": "Fitness class",
+    "source": "Cash"
+  },
+  {
+    "name": "Entertainment",
+    "createDated": "2024-01-28T20:00:00Z",
+    "total": 70.0,
+    "note": "Movie night",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Education",
+    "createDated": "2024-01-30T15:00:00Z",
+    "total": 300.0,
+    "note": "Textbooks",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Miscellaneous",
+    "createDated": "2024-01-31T17:30:00Z",
+    "total": 40.0,
+    "note": "Unexpected expense",
+    "source": "Cash"
+  },
+  {
+    "name": "Groceries",
+    "createDated": "2024-02-02T14:30:00Z",
+    "total": 160.0,
+    "note": "Weekly groceries",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Utilities",
+    "createDated": "2024-02-06T09:00:00Z",
+    "total": 77.5,
+    "note": "Monthly water bill",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Transportation",
+    "createDated": "2024-02-10T08:15:00Z",
+    "total": 38.0,
+    "note": "Gas refill",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Dining Out",
+    "createDated": "2024-02-13T18:45:00Z",
+    "total": 90.0,
+    "note": "Anniversary dinner",
+    "source": "Cash"
+  },
+  {
+    "name": "Subscriptions",
+    "createDated": "2024-02-20T12:00:00Z",
+    "total": 10.99,
+    "note": "Fitness app",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Clothing",
+    "createDated": "2024-02-23T16:30:00Z",
+    "total": 115.0,
+    "note": "Shoes",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Health & Wellness",
+    "createDated": "2024-02-25T10:00:00Z",
+    "total": 60.0,
+    "note": "Massage",
+    "source": "Cash"
+  },
+  {
+    "name": "Entertainment",
+    "createDated": "2024-02-28T20:00:00Z",
+    "total": 40.0,
+    "note": "Escape room",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Education",
+    "createDated": "2024-03-01T15:00:00Z",
+    "total": 220.0,
+    "note": "Exam fees",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Miscellaneous",
+    "createDated": "2024-03-02T17:30:00Z",
+    "total": 10.0,
+    "note": "Stationery",
+    "source": "Cash"
+  },
+  {
+    "name": "Groceries",
+    "createDated": "2024-03-03T14:30:00Z",
+    "total": 145.0,
+    "note": "Weekly groceries",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Utilities",
+    "createDated": "2024-03-07T09:00:00Z",
+    "total": 79.3,
+    "note": "Electricity bill",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Transportation",
+    "createDated": "2024-03-10T08:15:00Z",
+    "total": 52.0,
+    "note": "Monthly train pass",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Dining Out",
+    "createDated": "2024-03-12T18:45:00Z",
+    "total": 60.0,
+    "note": "Brunch",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Subscriptions",
+    "createDated": "2024-03-20T12:00:00Z",
+    "total": 12.99,
+    "note": "Premium news app",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Clothing",
+    "createDated": "2024-03-21T16:30:00Z",
+    "total": 200.0,
+    "note": "New suits",
+    "source": "Debit Card"
+  },
+  {
+    "name": "Health & Wellness",
+    "createDated": "2024-03-25T10:00:00Z",
+    "total": 25.0,
+    "note": "Yoga class",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Entertainment",
+    "createDated": "2024-03-27T20:00:00Z",
+    "total": 80.0,
+    "note": "Amusement park tickets",
+    "source": "Credit Card"
+  },
+  {
+    "name": "Education",
+    "createDated": "2024-03-29T15:00:00Z",
+    "total": 280.0,
+    "note": "Certification course",
+    "source": "Bank Transfer"
+  },
+  {
+    "name": "Miscellaneous",
+    "createDated": "2024-03-31T17:30:00Z",
+    "total": 15.0,
+    "note": "Office supplies",
+    "source": "Cash"
+  }
+]
