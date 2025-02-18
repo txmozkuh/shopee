@@ -14,6 +14,7 @@ import ProductDetail from '@pages/ProductDetail'
 import Cart from '@pages/Cart'
 import Profile from '@pages/User/Profile'
 import PasswordChange from '@pages/User/PasswordChange'
+import NotFound404 from '@/pages/NotFound404'
 const PurchaseManagement = lazy(() => import('@pages/User/PurchaseManagement'))
 
 function ProtectedRoute() {
@@ -28,6 +29,14 @@ function RejectedRoute() {
 
 export default function useRouteElements() {
   const routeElements = useRoutes([
+    {
+      path: '*',
+      element: (
+        <MainLayout>
+          <NotFound404 />
+        </MainLayout>
+      )
+    },
     {
       path: path.home,
       element: (

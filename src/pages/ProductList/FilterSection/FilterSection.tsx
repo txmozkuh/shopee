@@ -1,5 +1,5 @@
 import { Link, createSearchParams, useNavigate } from 'react-router-dom'
-import { path } from '../../../constants/path'
+import { path } from '@constants/path'
 import Button from '@components/Button'
 import { Category } from '../../../types/category.types'
 import { useState } from 'react'
@@ -40,7 +40,7 @@ export default function FilterSection({ queryParam, categories }: Props) {
     navigate('/')
   }
   return (
-    <div className='h-fit pb-4 mx-4  col-span-6 lg:col-span-1 px-2 bg-[rgba(0,0,0,.03)] text-sm lg:text-base md:mx-4 lg:mx-0'>
+    <div className='h-fit pb-4 mx-4  col-span-6 lg:col-span-1 px-2 text-sm lg:text-base md:mx-4 lg:mx-0'>
       <Link to={path.home} className='py-4 flex items-center gap-2 font-semibold border-b'>
         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' className='size-6'>
           <path

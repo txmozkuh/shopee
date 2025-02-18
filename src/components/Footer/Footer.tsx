@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer>
-      <div className='py-8 bg-slate-100 '>
+    <footer className='bg-[#fbfbfb]'>
+      <div className='py-8'>
         <div className='max-w-7xl mx-auto px-4'>
           <div className=' my-10 hidden lg:grid grid-cols-5 gap-4  text-sm '>
             <div className=' col-span-1'>
@@ -102,20 +102,22 @@ export default function Footer() {
               </span>
             </div>
           </div>
-          <div className='w-full leading-tight mt-20 px-20 flex justify-center text-neutral-500 uppercase divide-x text-xs text-center'>
-            <span className='px-10'>Chính sách bảo mật</span>
-            <span className='px-10'>Quy chế hoạt động </span>
-            <span className='px-10'>Chính sách vận chuyển</span>
-            <span className='px-10'>CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</span>
-          </div>
-          <div className='text-center mt-10 text-xs leading-7 text-neutral-700'>
-            <p>
-              Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành
-              phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn
-            </p>
-            <p>Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Bùi Anh Tuấn</p>
-            <p>Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</p>
-            <p>© 2015 - Bản quyền thuộc về Công ty TNHH Shopee</p>
+          <div className=''>
+            <div className='w-full leading-tight mt-20 px-20 flex justify-center text-neutral-500 uppercase divide-x text-xs text-center'>
+              <span className='px-10'>Chính sách bảo mật</span>
+              <span className='px-10'>Quy chế hoạt động </span>
+              <span className='px-10'>Chính sách vận chuyển</span>
+              <span className='px-10'>CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</span>
+            </div>
+            <div className='text-center mt-10 text-xs leading-7 text-neutral-700'>
+              <p>
+                Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình,
+                Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn
+              </p>
+              <p>Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Bùi Anh Tuấn</p>
+              <p>Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</p>
+              <p>© 2015 - Bản quyền thuộc về Công ty TNHH Shopee</p>
+            </div>
           </div>
         </div>
       </div>

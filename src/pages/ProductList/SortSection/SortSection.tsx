@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom'
 import Popover from '@components/Popover'
-import { sortBy, order } from '../../../constants/product'
+import { sortBy, order } from '@constants/product'
 import { ProductListConfig } from '../../../types/product.type'
 
 interface PaginationProps {
@@ -42,7 +42,7 @@ export default function SortSection({ page_size, queryParam }: PaginationProps) 
     setSearchParam(param)
   }
   return (
-    <div className='px-4 py-3 relative z-10 flex justify-between bg-[rgba(0,0,0,.03)] '>
+    <div className='px-4 py-3 relative z-10 flex justify-between '>
       <div className='text-xs md:text-sm flex gap-1 items-center flex-wrap'>
         <span className='hidden md:block px-2 font-medium'>Sắp xếp theo</span>
         <button

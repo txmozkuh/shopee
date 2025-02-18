@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { path } from '../../constants/path'
+import { path } from '@constants/path'
 export default function RegisterHeader() {
   const TITLE = window.location.pathname == '/register' ? 'Đăng ký' : 'Đăng nhập'
   return (

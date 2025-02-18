@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { purchaseStatus } from '../../../constants/purchase'
+import { purchaseStatus } from '@constants/purchase'
 import { PurchaseListStatus } from '../../../types/purchases.type'
 import { useQuery } from '@tanstack/react-query'
-import { getPurchase } from '../../../apis/purchases.api'
-import { formatPrice } from '../../../utils/utils'
+import { getPurchase } from '@apis/purchases.api'
+import { formatPrice } from '@utils/utils'
 
 export default function PurchaseManagement() {
   const [curStatus, setcurStatus] = useState<PurchaseListStatus>(purchaseStatus.all.value)

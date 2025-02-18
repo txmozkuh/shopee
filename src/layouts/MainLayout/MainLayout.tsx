@@ -7,7 +7,7 @@ interface Props {
 
 export default function MainLayout({ children }: Props) {
   return (
-    <div className='bg-neutral-200'>
+    <div className='bg-[#f5f5f5]'>
       <Header />
       <div className='py-2'>{children}</div>
 

@@ -2,11 +2,11 @@ import { useQuery } from '@tanstack/react-query'
 import FilterSection from './FilterSection'
 import Product from './Product'
 import SortSection from './SortSection'
-import { getProductList } from '../../apis/prodcut.api'
-import useQueryParams from '../../hooks/useQueryParams'
+import { getProductList } from '@apis/prodcut.api'
+import useQueryParams from '@hooks/useQueryParams'
 import Pagination from '@mui/material/Pagination'
 import { useSearchParams } from 'react-router-dom'
-import { getCatagories } from '../../apis/category.api'
+import { getCatagories } from '@apis/category.api'
 
 export default function ProductList() {
   const queryParams = useQueryParams()
@@ -34,13 +34,13 @@ export default function ProductList() {
   }
   return (
     <div className=' '>
-      <div className='max-w-7xl py-6 m-auto grid grid-cols-6 bg-white '>
+      <div className='max-w-7xl py-2 px-2 m-auto grid grid-cols-6 bg-white '>
         <FilterSection queryParam={queryParams} categories={categoryData?.data.data || []} />
         <div className='px-2 col-span-6 lg:col-span-5 flex flex-col'>
           <SortSection page_size={page_size} queryParam={queryParams} />
-          <div className='mt-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-3 place-items-center md:place-items-start flex-grow'>
+          <div className='m-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-3 place-items-center md:place-items-start flex-grow'>
             {isLoading ? (
-              <div className='text-xl size-full col-span-full bg-neutral-100 animate-pulse flex items-center justify-center'>
+              <div className='text-sm md:text-lg lg:text-xl size-full col-span-full animate-pulse flex items-center justify-center'>
                 Loading...
               </div>
             ) : (

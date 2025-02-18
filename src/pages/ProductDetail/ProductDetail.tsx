@@ -1,30 +1,37 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getProductDetail, getProductList } from '../../apis/prodcut.api'
+import { getProductDetail, getProductList } from '@apis/prodcut.api'
 import RatingStar from '@components/RatingStar'
-import { formatNumber, formatPrice, getIdFromPath } from '../../utils/utils'
+import { formatNumber, formatPrice, getIdFromPath } from '@utils/utils'
 import DOMPurify from 'dompurify'
 import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import Product from '../ProductList/Product'
 import QuantityController from '@components/QuantityController'
-import { addToCart } from '../../apis/purchases.api'
+import { addToCart } from '@apis/purchases.api'
 import { toast } from 'react-toastify'
-import { purchaseStatus } from '../../constants/purchase'
-import { path } from '../../constants/path'
-import { AppContext } from '../../contexts/app.context'
+import { purchaseStatus } from '@constants/purchase'
+import { path } from '@constants/path'
+import { AppContext } from '@contexts/app.context'
 
 export default function ProductDetail() {
+  const navigate = useNavigate()
   const { profile } = useContext(AppContext)
   const queryClient = useQueryClient()
   //?Get product detail
   const { nameId } = useParams()
   const id = getIdFromPath(nameId as string)
-  const { data: productDetailData } = useQuery({
+  const { data: productDetailData, isError } = useQuery({
     queryKey: ['/productDetail', id],
     queryFn: () => getProductDetail(id as string)
   })
-  const productDetail = productDetailData?.data.data
+  useEffect(() => {
+    if (isError) {
+      toast.error('Không tìm thấy sản phẩm')
+      navigate('*')
+    }
+  })
 
+  const productDetail = productDetailData?.data.data
   //?Image zoom
   const [isHovered, setIsHovered] = useState(false)
   const [imgPosition, setImgPosition] = useState({ x: 0, y: 0 })
@@ -81,7 +88,6 @@ export default function ProductDetail() {
     }
   }
   //?Buy product immediately
-  const navigate = useNavigate()
   const handleBuyProduct = () => {
     if (profile) {
       handleAddToCart()

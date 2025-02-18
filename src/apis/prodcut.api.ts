@@ -1,6 +1,6 @@
 import { ProductType, ProductList, ProductListConfig } from '../types/product.type'
 import { ResponseApi } from '../types/utils.types'
-import http from '../utils/http'
+import http from '@utils/http'
 
 const URL = '/products'
 

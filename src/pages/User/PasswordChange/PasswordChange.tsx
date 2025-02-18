@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form'
-import { ChangePasswordForm, UpdateUserForm, changePasswordSchema } from '../../../utils/rules'
+import { ChangePasswordForm, UpdateUserForm, changePasswordSchema } from '@utils/rules'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from '@tanstack/react-query'
-import { updateUserInfo } from '../../../apis/user.api'
+import { updateUserInfo } from '@apis/user.api'
 import Input from '@components/Input'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
-import { path } from '../../../constants/path'
+import { path } from '@constants/path'
 
 export default function PasswordChange() {
   const navigate = useNavigate()

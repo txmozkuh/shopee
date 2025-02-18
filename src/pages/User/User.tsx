@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { path } from '../../constants/path'
+import { path } from '@constants/path'
 import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { getUserInfo } from '../../apis/user.api'
-import { getAvatarUrl } from '../../utils/utils'
+import { getUserInfo } from '@/apis/user.api'
+import { getAvatarUrl } from '@utils/utils'
 
 interface Props {
   children: React.ReactNode
@@ -27,7 +27,7 @@ export default function User({ children }: Props) {
             <img src={avatarImage} alt='' className='rounded-[50%] size-12' />
             <span className='text-sm font-medium leading-loose'>Daeva Phạm</span>
           </div>
-          <div className='py-4 flex md:flex-col justify-evenly gap-2'>
+          <div className='py-4 flex md:flex-col justify-evenly gap-5'>
             <Link
               to={path.profile}
               onClick={() => setCurPath(path.profile)}

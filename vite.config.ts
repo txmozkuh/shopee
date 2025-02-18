@@ -15,7 +15,13 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@layouts': path.resolve(__dirname, 'src/layouts')
+      '@layouts': path.resolve(__dirname, 'src/layouts'),
+      '@apis': path.resolve(__dirname, 'src/apis'),
+      '@constants': path.resolve(__dirname, 'src/constants'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@contexts': path.resolve(__dirname, 'src/contexts'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@types': path.resolve(__dirname, 'src/types')
     }
   }
 })

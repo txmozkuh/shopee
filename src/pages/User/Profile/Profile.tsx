@@ -1,12 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { getUserInfo, updateUserInfo, uploadUserAvatar } from '../../../apis/user.api'
+import { getUserInfo, updateUserInfo, uploadUserAvatar } from '@apis/user.api'
 import Input from '@components/Input'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { UpdateUserForm, updateUserSchema } from '../../../utils/rules'
+import { UpdateUserForm, updateUserSchema } from '@utils/rules'
 import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
-import { getAvatarUrl } from '../../../utils/utils'
+import { getAvatarUrl } from '@utils/utils'
 
 export default function Profile() {
   const queryClient = useQueryClient()

@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
-import Popover from '../Popover'
+import Popover from '@components/Popover'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { logout } from '../../apis/auth.api'
+import { logout } from '@apis/auth.api'
 import { useContext } from 'react'
-import { AppContext } from '../../contexts/app.context'
-import { path } from '../../constants/path'
-import { getPurchase } from '../../apis/purchases.api'
-import { purchaseStatus } from '../../constants/purchase'
-import { formatPrice } from '../../utils/utils'
+import { AppContext } from '@contexts/app.context'
+import { path } from '@constants/path'
+import { getPurchase } from '@apis/purchases.api'
+import { purchaseStatus } from '@constants/purchase'
+import { formatPrice } from '@utils/utils'
 
 export default function Header() {
   const { profile, setProfile, isAuthenticated, setIsAuthenticated } = useContext(AppContext)

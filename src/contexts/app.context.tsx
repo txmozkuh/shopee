@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { getAccessToken, getProfile } from '../utils/auth'
+import { getAccessToken, getProfile } from '@utils/auth'
 import { User } from '../types/user.types'
 
 interface AppContextInterface {
