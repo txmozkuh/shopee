@@ -11,7 +11,7 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children }) => {
   const location = useLocation()
 
   useEffect(() => {
-    const errorHandler = (event: ErrorEvent) => {
+    const errorHandler = () => {
       setHasError(true)
     }
 
