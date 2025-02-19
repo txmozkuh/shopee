@@ -7,6 +7,7 @@ import { UpdateUserForm, updateUserSchema } from '@utils/rules'
 import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 import { getAvatarUrl } from '@utils/utils'
+import UserImage from '@images/user.svg'
 
 export default function Profile() {
   const queryClient = useQueryClient()
@@ -19,7 +20,7 @@ export default function Profile() {
   const userInfo = userData?.data.data
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [file, setFile] = useState<File>()
-  const previewImage = file ? URL.createObjectURL(file) : getAvatarUrl(userInfo ? (userInfo.avatar ?? '') : '')
+  const previewImage = file ? URL.createObjectURL(file) : userInfo?.avatar ? getAvatarUrl(userInfo.avatar) : UserImage
 
   const {
     register,
@@ -71,6 +72,7 @@ export default function Profile() {
     }
   }
 
+  console.log(previewImage)
   return (
     <form className='bg-white px-6 py-4 rounded-sm shadow-sm' onSubmit={onSubmit}>
       <div className='border-b pb-4 text-center md:text-left'>

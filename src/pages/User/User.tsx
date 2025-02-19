@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getUserInfo } from '@/apis/user.api'
 import { getAvatarUrl } from '@utils/utils'
-
+import UserImage from '@images/user.svg'
 interface Props {
   children: React.ReactNode
 }
@@ -15,17 +15,18 @@ export default function User({ children }: Props) {
     queryFn: () => getUserInfo()
   })
   const userInfo = userData?.data.data
-  const avatarImage = getAvatarUrl(userInfo ? (userInfo.avatar ?? '') : '')
+  const userName = userInfo?.name ?? 'New User'
+  const avatarImage = userInfo?.avatar ? getAvatarUrl(userInfo.avatar) : UserImage
   useEffect(() => {
     setCurPath(window.location.pathname)
   }, [window.location.pathname])
   return (
-    <div className=' border-b-4 border-orange-600'>
+    <div className=''>
       <div className='max-w-7xl m-auto md:p-4 p-2 grid grid-cols-12 gap-2'>
         <div className='col-span-12 md:col-span-3 lg:col-span-2 gap-2 bg-white shadow-sm px-4 h-fit'>
           <div className='flex justify-center items-center gap-3 border-b py-4'>
             <img src={avatarImage} alt='' className='rounded-[50%] size-12' />
-            <span className='text-sm font-medium leading-loose'>Daeva Phạm</span>
+            <span className='text-sm font-medium leading-loose'>{userName}</span>
           </div>
           <div className='py-4 flex md:flex-col justify-evenly gap-5'>
             <Link
