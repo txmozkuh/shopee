@@ -25,7 +25,7 @@ export default function QuantityController({ maxValue, setValue, value, action, 
     }
   }
   const handleDecrease = () => {
-    if (value > 1 && inputValue > 1) {
+    if (inputValue > 1) {
       if (setValue) setValue(value - 1)
       setInputValue(inputValue - 1)
     }

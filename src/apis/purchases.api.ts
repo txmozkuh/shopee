@@ -15,5 +15,8 @@ export const getPurchase = (params: { status: PurchaseListStatus }) =>
 export const updatePurchase = (body: { product_id: string; buy_count: number }) =>
   http.put<ResponseApi<Purchase>>(URL + '/update-purchase', body)
 
+export const deletePurchase = (body: string[]) =>
+  http.delete<ResponseApi<{ delete_count: number }>>(URL, { data: body })
+
 export const buyProducts = (body: { product_id: string; buy_count: number }[]) =>
   http.post<ResponseApi<Purchase>>(URL + '/buy-products', body)

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { buyProducts, getPurchase, updatePurchase } from '@apis/purchases.api'
+import { buyProducts, deletePurchase, getPurchase, updatePurchase } from '@apis/purchases.api'
 import { purchaseStatus } from '@constants/purchase'
 import QuantityController from '@components/QuantityController'
 import { formatPrice } from '@utils/utils'
@@ -32,6 +32,22 @@ export default function Cart() {
   const buyProductsMutation = useMutation({
     mutationFn: (body: { product_id: string; buy_count: number }[]) => buyProducts(body)
   })
+
+  const deleteProductMution = useMutation({
+    mutationFn: (body: string[]) => deletePurchase(body),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        //Update cart
+        queryKey: ['cart', { status: purchaseStatus.inCart }],
+        exact: true
+      })
+      queryClient.invalidateQueries({
+        //Call lại API từ theo queryKey ở một nhánh khác
+        queryKey: ['cart', { status: purchaseStatus.inCart.value }],
+        exact: true
+      })
+    }
+  })
   const handleUpdateCart = (product_id: string, buy_count: number) => {
     updateCartMutation.mutate({
       product_id,
@@ -59,6 +75,18 @@ export default function Cart() {
     }
   }
 
+  const handleDelete = (item_id: string) => {
+    deleteProductMution.mutate([item_id])
+  }
+
+  const handleDeleteSelected = () => {
+    if (selectedItem && selectedItem?.length > 0) {
+      const selectedIds = selectedItem.map((item) => item._id)
+      deleteProductMution.mutate(selectedIds)
+    } else {
+      toast.info('Không có sản phẩm nào được chọn')
+    }
+  }
   const handleBuyProducts = () => {
     if (selectedItem) {
       const selectedProducts = selectedItem.map(({ product: { _id }, buy_count }) => {
@@ -69,6 +97,11 @@ export default function Cart() {
           queryClient.invalidateQueries({
             //Call lại API từ theo queryKey ở một nhánh khác
             queryKey: ['cart', { status: purchaseStatus.inCart.value }],
+            exact: true
+          })
+          queryClient.invalidateQueries({
+            //Update cart
+            queryKey: ['cart', { status: purchaseStatus.inCart }],
             exact: true
           })
           setSelectedItem([])
@@ -94,72 +127,89 @@ export default function Cart() {
           <div className='col-span-2 md:col-span-1'>Số tiền</div>
           <div className='col-span-1'>Thao tác</div>
         </div>
-        <div className='flex-col bg-white shadow-sm rounded-sm divide-y text-sm place-items-center'>
-          {cartList?.map((item) => (
-            <div className='grid grid-cols-12 place-items-center w-full' key={item._id}>
-              <input
-                type='checkbox'
-                className='col-span-1 accent-shopee scale-125'
-                onChange={() => handleSelectedItem(item)}
-                checked={selectedItem?.includes(item)}
-              />
-
-              <div className='flex col-span-4 md:col-span-5  place-self-start px-4 py-6 gap-2 flex-col md:flex-row'>
-                <img src={item.product.image} alt={item.product.name} className='size-12' />
-                <p className='font-normal text-xs md:text-sm'>{item.product.name}</p>
-              </div>
-              <div className='col-span-2 flex gap-2 items-center text-sm flex-col md:flex-row'>
-                <p className='line-through text-neutral-500 text-xs '>₫{formatPrice(item.price_before_discount, 0)}</p>
-                <p className='text-shopee'>₫{formatPrice(item.price, 0)}</p>
-              </div>
-              <div className='col-span-2'>
-                <QuantityController
-                  value={item.buy_count}
-                  maxValue={item.product.quantity}
-                  action={handleUpdateCart}
-                  actionValue={item.product._id}
+        <div className='flex-col bg-white shadow-sm rounded-sm divide-y text-sm flex justify-center items-center'>
+          {cartList ? (
+            cartList.map((item) => (
+              <div className='grid grid-cols-12 place-items-center w-full' key={item._id}>
+                <input
+                  type='checkbox'
+                  className='col-span-1 accent-shopee scale-125'
+                  onChange={() => handleSelectedItem(item)}
+                  checked={selectedItem?.includes(item)}
                 />
+
+                <div className='flex col-span-4 md:col-span-5  place-self-start px-4 py-6 gap-2 flex-col md:flex-row'>
+                  <img src={item.product.image} alt={item.product.name} className='size-12' />
+                  <p className='font-normal text-xs md:text-sm'>{item.product.name}</p>
+                </div>
+                <div className='col-span-2 flex gap-2 items-center text-sm flex-col md:flex-row'>
+                  <p className='line-through text-neutral-500 text-xs '>
+                    ₫{formatPrice(item.price_before_discount, 0)}
+                  </p>
+                  <p className='text-shopee'>₫{formatPrice(item.price, 0)}</p>
+                </div>
+                <div className='col-span-2'>
+                  <QuantityController
+                    value={item.buy_count}
+                    maxValue={item.product.quantity}
+                    action={handleUpdateCart}
+                    actionValue={item.product._id}
+                  />
+                </div>
+                <div className=' text-shopee col-span-2 md:col-span-1 text-sm'>
+                  ₫{formatPrice(item.price * item.buy_count, 0)}
+                </div>
+                <div className='col-span-1'>
+                  <button
+                    className='col-span-1 hover:underline hover:font-medium text-xs md:text-sm'
+                    onClick={() => handleDelete(item._id)}
+                  >
+                    Xóa{' '}
+                  </button>
+                </div>
               </div>
-              <div className=' text-shopee col-span-2 md:col-span-1 text-sm'>
-                ₫{formatPrice(item.price * item.buy_count, 0)}
-              </div>
-              <div className='col-span-1'>
-                <button className='col-span-1 hover:underline hover:font-medium text-xs md:text-sm'>Xóa </button>
-              </div>
+            ))
+          ) : (
+            <span className='text-lg text-neutral-400 py-8'>Đang tải đơn hàng</span>
+          )}
+        </div>
+        {cartList && cartList.length > 0 ? (
+          <div className='mt-2 sticky bottom-0 bg-white py-4 md:p-8 rounded-sm shadow-inner flex mb-2 justify-between border-t-2 border-shopee'>
+            <div className='flex md:gap-8 justify-center items-center'>
+              <label className='flex md:gap-8 px-4 gap-2'>
+                <input
+                  type='checkbox'
+                  className='accent-shopee scale-125'
+                  onChange={handleSelectedAll}
+                  checked={cartList?.length === selectedItem?.length}
+                />
+                <p className='cursor-pointer hover:underline text-sm md:text-lg'>
+                  Chọn tất cả {`(${cartList ? cartList.reduce((acc, cur) => acc + cur.buy_count, 0) : 0})`}
+                </p>
+              </label>
+              <button className='hover:underline mx-4 text-sm md:text-base' onClick={handleDeleteSelected}>
+                Xóa
+              </button>
             </div>
-          ))}
-        </div>
-        <div className='mt-2 sticky bottom-0 bg-white py-4 md:p-8 rounded-sm shadow-inner flex mb-2 justify-between border-t-2 border-shopee'>
-          <div className='flex md:gap-8 justify-center items-center'>
-            <label className='flex md:gap-8 px-4 gap-2'>
-              <input
-                type='checkbox'
-                className='accent-shopee scale-125'
-                onChange={handleSelectedAll}
-                checked={cartList?.length === selectedItem?.length}
-              />
-              <p className='cursor-pointer hover:underline text-sm md:text-lg'>
-                Chọn tất cả {`(${cartList?.reduce((acc, cur) => acc + cur.buy_count, 0)})`}
+            <div className=' gap-8 flex justify-center items-center '>
+              <p className='md:text-lg text-sm text-center'>
+                Tổng thanh toán {`(${selectedItem?.reduce((acc, cur) => acc + cur.buy_count, 0)}) sản phẩm: `}
               </p>
-            </label>
-            <button className='hover:underline mx-4 text-sm md:text-base'>Xóa</button>
+              <span className='text-shopee font-medium md:text-xl'>
+                ₫{formatPrice(selectedItem?.reduce((acc, cur) => acc + cur.buy_count * cur.price, 0)!, 0)}
+              </span>
+              <button
+                className='bg-shopee text-white font-light px-4 py-2 md:px-8 md:py-4 rounded-sm'
+                onClick={handleBuyProducts}
+                disabled={buyProductsMutation.isPending}
+              >
+                {buyProductsMutation.isPending ? 'Đang mua hàng ' : 'Mua hàng'}
+              </button>
+            </div>
           </div>
-          <div className=' gap-8 flex justify-center items-center '>
-            <p className='md:text-lg text-sm text-center'>
-              Tổng thanh toán {`(${selectedItem?.reduce((acc, cur) => acc + cur.buy_count, 0)}) sản phẩm: `}
-            </p>
-            <span className='text-shopee font-medium md:text-xl'>
-              ₫{formatPrice(selectedItem?.reduce((acc, cur) => acc + cur.buy_count * cur.price, 0)!, 0)}
-            </span>
-            <button
-              className='bg-shopee text-white font-light px-4 py-2 md:px-8 md:py-4 rounded-sm'
-              onClick={handleBuyProducts}
-              disabled={buyProductsMutation.isPending}
-            >
-              {buyProductsMutation.isPending ? 'Đang mua hàng ' : 'Mua hàng'}
-            </button>
-          </div>
-        </div>
+        ) : (
+          <div className='text-lg text-neutral-400 py-8 text-center w-full'>Không có đơn hàng</div>
+        )}
       </div>
     </div>
   )

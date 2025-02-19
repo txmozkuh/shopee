@@ -39,7 +39,7 @@ export default function Register() {
       onSuccess: (res) => {
         setIsAuthenticated(true)
         setProfile(res.data.data?.user as User)
-        navigate('/profile')
+        navigate('/')
       },
       onError: (error) => {
         if (isAxiosUnprocessableEntityError<ResponseApi<Omit<SchemaForm, 'confirm_password'>>>(error)) {
