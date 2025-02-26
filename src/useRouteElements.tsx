@@ -1,30 +1,41 @@
-/* eslint-disable react-refresh/only-export-components */
 import { Navigate, Outlet, useRoutes } from 'react-router-dom'
-import Login from '@pages/Login'
-import ProductList from '@pages/ProductList'
-import Register from '@pages/Register'
-import RegisterLayout from '@layouts/RegisterLayout'
-import MainLayout from '@layouts/MainLayout'
-import User from '@pages/User'
-
 import { Suspense, lazy, useContext } from 'react'
 import { AppContext } from './contexts/app.context'
 import { path } from './constants/path'
-import ProductDetail from '@pages/ProductDetail'
-import Cart from '@pages/Cart'
-import Profile from '@pages/User/Profile'
-import PasswordChange from '@pages/User/PasswordChange'
-import NotFound404 from '@/pages/NotFound404'
+
+const Login = lazy(() => import('@pages/Login'))
+const Register = lazy(() => import('@pages/Register'))
+const ProductList = lazy(() => import('@pages/ProductList'))
+const RegisterLayout = lazy(() => import('@layouts/RegisterLayout'))
+const MainLayout = lazy(() => import('@layouts/MainLayout'))
+const User = lazy(() => import('@pages/User'))
+const ProductDetail = lazy(() => import('@pages/ProductDetail'))
+const Cart = lazy(() => import('@pages/Cart'))
+const Profile = lazy(() => import('@pages/User/Profile'))
+const PasswordChange = lazy(() => import('@pages/User/PasswordChange'))
+const NotFound404 = lazy(() => import('@/pages/NotFound404'))
 const PurchaseManagement = lazy(() => import('@pages/User/PurchaseManagement'))
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
-  return isAuthenticated ? <Outlet /> : <Navigate to='/login' />
+  return isAuthenticated ? (
+    <Suspense>
+      <Outlet />
+    </Suspense>
+  ) : (
+    <Navigate to='/login' />
+  )
 }
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
-  return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
+  return !isAuthenticated ? (
+    <Suspense>
+      <Outlet />
+    </Suspense>
+  ) : (
+    <Navigate to='/' />
+  )
 }
 
 export default function useRouteElements() {
@@ -33,7 +44,9 @@ export default function useRouteElements() {
       path: '*',
       element: (
         <MainLayout>
-          <NotFound404 />
+          <Suspense fallback={<div>Loading...</div>}>
+            <NotFound404 />
+          </Suspense>
         </MainLayout>
       )
     },
@@ -41,7 +54,9 @@ export default function useRouteElements() {
       path: path.home,
       element: (
         <MainLayout>
-          <ProductList />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProductList />
+          </Suspense>
         </MainLayout>
       )
     },
@@ -49,7 +64,9 @@ export default function useRouteElements() {
       path: path.productDetail,
       element: (
         <MainLayout>
-          <ProductDetail />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProductDetail />
+          </Suspense>
         </MainLayout>
       )
     },
@@ -64,9 +81,11 @@ export default function useRouteElements() {
         {
           path: path.user,
           element: (
-            <User>
-              <Outlet />
-            </User>
+            <Suspense fallback={<div>Loading...</div>}>
+              <User>
+                <Outlet />
+              </User>
+            </Suspense>
           ),
 
           children: [
@@ -74,16 +93,24 @@ export default function useRouteElements() {
 
             {
               path: path.profile,
-              element: <Profile />
+              element: (
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Profile />
+                </Suspense>
+              )
             },
             {
               path: path.change_password,
-              element: <PasswordChange />
+              element: (
+                <Suspense fallback={<div>Loading...</div>}>
+                  <PasswordChange />
+                </Suspense>
+              )
             },
             {
               path: path.purchase,
               element: (
-                <Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
                   <PurchaseManagement />
                 </Suspense>
               )
@@ -92,11 +119,19 @@ export default function useRouteElements() {
         },
         {
           path: path.cart,
-          element: <Cart />
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Cart />
+            </Suspense>
+          )
         },
         {
           path: path.cart_with_id,
-          element: <Cart />
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Cart />
+            </Suspense>
+          )
         }
       ]
     },
@@ -108,7 +143,9 @@ export default function useRouteElements() {
           path: path.login,
           element: (
             <RegisterLayout>
-              <Login />
+              <Suspense fallback={<div>Loading...</div>}>
+                <Login />
+              </Suspense>
             </RegisterLayout>
           )
         },
@@ -116,7 +153,9 @@ export default function useRouteElements() {
           path: path.register,
           element: (
             <RegisterLayout>
-              <Register />
+              <Suspense fallback={<div>Loading...</div>}>
+                <Register />
+              </Suspense>
             </RegisterLayout>
           )
         }

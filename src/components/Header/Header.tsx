@@ -11,8 +11,9 @@ import { formatPrice } from '@utils/utils'
 
 export default function Header() {
   const { profile, setProfile, isAuthenticated, setIsAuthenticated } = useContext(AppContext)
-  //?Load cart
 
+  // const [param, setSearchParam] = useSearchParams()
+  //?Load cart
   const { data: cartListData } = useQuery({
     queryKey: ['purchases', { status: purchaseStatus.inCart }],
     queryFn: () => getPurchase({ status: purchaseStatus.inCart.value }),
@@ -20,6 +21,7 @@ export default function Header() {
   })
   const cartList = cartListData?.data.data || []
   const totalItem = !profile ? 0 : cartList?.reduce((acc, cur) => acc + cur.buy_count, 0)
+
   const logOutMutation = useMutation({
     mutationFn: () => logout(),
     onSuccess: () => {
@@ -27,6 +29,11 @@ export default function Header() {
       setIsAuthenticated(false)
     }
   })
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value)
+  }
+
   const handleLogout = () => {
     logOutMutation.mutate()
   }
@@ -218,6 +225,7 @@ export default function Header() {
                   name='search'
                   className='px-3 py-2 flex-grow border-none outline-none text-sm text-neutral-700'
                   placeholder='Shopee bao shop 0Đ - Đăng ký ngay!'
+                  onChange={handleSearch}
                 />
                 <button className='rounded-sm px-6 bg-[linear-gradient(-180deg,#f53d2d,#f63)]'>
                   <svg
