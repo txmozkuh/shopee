@@ -27,7 +27,6 @@ class Http {
 
         return config
       },
-
       (error) => {
         return Promise.reject(error)
       }

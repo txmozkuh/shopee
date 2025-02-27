@@ -23,10 +23,10 @@ export default function User({ children }: Props) {
   return (
     <div className=''>
       <div className='max-w-7xl m-auto md:p-4 p-2 grid grid-cols-12 gap-2'>
-        <div className='col-span-12 md:col-span-3 lg:col-span-2 gap-2 bg-white shadow-sm px-4 h-fit'>
-          <div className='flex justify-center items-center gap-3 border-b py-4'>
+        <div className='col-span-12 md:col-span-3 lg:col-span-2 bg-white shadow-sm px-4 h-fit'>
+          <div className='flex justify-center flex-col items-center gap-1 border-b py-4 '>
             <img src={avatarImage} alt='' className='rounded-[50%] size-12' />
-            <span className='text-sm font-medium leading-loose'>{userName}</span>
+            <span className='text-sm font-medium text-center'>{userName}</span>
           </div>
           <div className='py-4 flex md:flex-col justify-evenly gap-5'>
             <Link

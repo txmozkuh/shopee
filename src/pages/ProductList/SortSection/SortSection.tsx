@@ -93,7 +93,7 @@ export default function SortSection({ page_size, queryParam }: PaginationProps) 
             </div>
           }
           renderPopover={
-            <div id='mega-menu-dropdown' className='relative w-36 md:w-48 bg-white text-neutral-800'>
+            <div id='mega-menu-dropdown' className='relative w-36 md:w-48 bg-white text-neutral-800 shadow-md'>
               <div className='p-4 '>
                 <ul className='space-y-4' aria-labelledby='mega-menu-dropdown-button'>
                   <li
