@@ -86,7 +86,7 @@ export default function Header() {
     )
   }
   return (
-    <header className='relative z-50 pt-2 pb-2 bg-[linear-gradient(-180deg,#f53d2d,#f63)]'>
+    <header className='relative z-50 pt-2 pb-2 bg-[linear-gradient(-180deg,#f53d2d,#f63)] w-full'>
       <div className='max-w-7xl px-2 m-auto flex-col gap-4'>
         <div className='flex justify-center md:justify-between leading-tight text-[0.8rem] font-light text-white'>
           <div className='text-center divide-x divide-neutral-300 cursor-pointer hidden md:block lg:block '>

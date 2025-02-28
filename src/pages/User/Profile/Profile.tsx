@@ -72,7 +72,6 @@ export default function Profile() {
     }
   }
 
-  console.log(previewImage)
   return (
     <form className='bg-white px-6 py-4 rounded-sm shadow-sm' onSubmit={onSubmit}>
       <div className='border-b pb-4 text-center md:text-left'>

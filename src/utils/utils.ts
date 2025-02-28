@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios'
 import { config } from '../constants/config'
+import { ResponseApi } from '@/types/utils.types'
 
 export function isAxiosError<T>(error: unknown): error is AxiosError<T> {
   return axios.isAxiosError(error)
@@ -8,6 +9,17 @@ export function isAxiosError<T>(error: unknown): error is AxiosError<T> {
 export function isAxiosUnprocessableEntityError<FormError>(error: unknown): error is AxiosError<FormError> {
   // ! Check if error is 422
   return isAxiosError(error) && error.response?.status === axios.HttpStatusCode.UnprocessableEntity
+}
+
+export function isAxiosUnauthorizedError<UnauthorizedError>(error: unknown): error is AxiosError<UnauthorizedError> {
+  return isAxiosError(error) && error.response?.status === axios.HttpStatusCode.Unauthorized
+}
+
+export function isAxiosExpiredTokenError<UnauthorizedError>(error: unknown): error is AxiosError<UnauthorizedError> {
+  return (
+    isAxiosUnauthorizedError<ResponseApi<{ name: string; message: string }>>(error) &&
+    error.response?.data?.data?.name === 'EXPIRED_TOKEN'
+  )
 }
 
 export const formatPrice = (num: number, digit: number) => {
